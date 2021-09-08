@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Box, HStack, SimpleGrid, Stack, Image, Center, Heading, Text, Button, VStack, Flex } from "@chakra-ui/react"
+import { Box, Stack, Image, Heading, Text, Button, Flex } from "@chakra-ui/react"
 import { useParams } from 'react-router'
 import Swal from 'sweetalert2'
 import { listaProductos } from './productos'
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const DetailView = () => {
     
@@ -12,21 +12,24 @@ const DetailView = () => {
     const history = useHistory();
     
 
+    //Extraigo el id de la url
     const productId  = useParams();
     const { id } = productId
-    console.log("Product Id:", id)
     
+    
+    // Funcion que busca en un array el Id seleccionado
     const buscarProducto = (id) => {
-        console.log("Id de Entrada a funcion:", id)
         const findProductById = listaProductos.find(item => item.id == id )
-        console.log("Find Product By Id:", findProductById)
+        // console.log("Find Product By Id:", findProductById)
         setArticulo(findProductById)
     }
 
+    // Regreso a Main View
     const handleBack = () => {
         history.push("./")
     }
 
+    // Funcio de notificacion de compra
     const handleBuy = (id) => {
         console.log("Has comprado el articulo:", id)
         Swal.fire({
@@ -39,17 +42,20 @@ const DetailView = () => {
         
     }
 
+    // Cuando la variable articulo cambia se llama a la funcion
     useEffect(() => {
         buscarProducto(id) 
     }, [articulo])
 
-    // Desestructuracion
 
+    // Desestructuracion
     const {descripcion, precio, imagen} = articulo
 
     return (
         <>
             <Button
+                mt="1rem"
+                ml="1rem"
                 onClick={() => handleBack()}
             >
                 Volver
@@ -57,17 +63,11 @@ const DetailView = () => {
 
             <Flex
                 bg="white" 
-                w={["95%", "90%", "80%", "80%"]}
-                
-                // border="1px" 
+                w={["95%", "90%", "70%", "60%"]}
                 borderRadius={8}
-                mt={["2rem", null , null, "5rem"]}
-                // mb="3rem"
-                // my="auto"
-                mx="auto"
-                // borderColor="gray.100" 
+                mt={["1rem", null , null, "5rem"]}
+                mx="auto" 
                 p={6} 
-                // d={{base: "grid", md: "grid"}}
             >
                 <Stack
                     direction={['column', "column" , "row" , "row"]}
@@ -76,48 +76,23 @@ const DetailView = () => {
                 
                     <Box
                         mx="auto" 
-                        // alignItems="center"
                         w={["100%", "100%", "100%", "50%"]}
-                        // alignSelf="center"
-                        // alignContent="center"
-                        // justifyContent="center"
-                        
-                        // maxW={["220px","300px", "300px", "300px"]}
-                        // bg="blackAlpha.300"
                     >
                         <Image 
                             src={imagen}
-                            mx="auto"
-                            // textAlign="center"
-                            // alignContent="center"
-                            // justifyContent="space-around" 
-                            
-                            // w="300px"  
-                            
+                            mx="auto"  
                         />
                     </Box>
                
             
                     <Stack
-                        // alignItems="center"
                         p={2}
                         w={["100%", "100%", "100%", "70%"]}
                         bg=""
                         mx="auto" 
-                        // maxW={["220px","300px", "300px", "400px"]}
-                    >
-
-                        {/* <Heading 
-
-                            mb={2}
-                        >
-                            Producto Nro {articulo.id}
-                        </Heading> */}
-                        
-                        
-                        
+                    >   
+                           
                         <Heading 
-                            // mb={2}
                             fontSize={20}
                         >
                             {descripcion}
@@ -131,41 +106,24 @@ const DetailView = () => {
                         </Text>
 
                         <Heading 
-                            // mb={2}
-                            fontSize="lg"
-                            fontSize={15}
-                            // mb={5}
+                            fontSize="medium"
+                            fontWeight="normal"
                         >
                             Producto: {articulo.id}
                         </Heading>
                             
                         <Text 
-                            // fontFamily="Georama" 
-                            fontWeight="bold"
-                            
+                            fontWeight="bold" 
+                            fontSize="xl"           
                         > 
                             $ {precio}
                         </Text>
 
                         
-                        {/* <Box 
-                            className="d-flex justify-content-center"
-                            mt={4}
-                        >
-
-                            <button className= "btn btn-secondary" onClick={decrementar} disabled={qty <= 1 ? true : null }>  - </button>
-                            <h2 className="hola strong mt-2 ml-3 mr-3">{qty}</h2>
-                            <button className="btn btn-secondary" onClick={incrementar}  disabled= {qty === item.stock ? true : null }> + </button>	
-                            
-
-                        </Box> */}
-                        
                         <Button                          
                             onClick={() => handleBuy(articulo.id)}
-                            
                             bg="#23B202"
                             color="white"
-                            // h={[1,null, null, 8]}
                             borderRadius="full"
                             fontSize= "small"
                             _hover= {{
@@ -182,10 +140,8 @@ const DetailView = () => {
                     </Stack>
                 </Stack>
             
-        </Flex>
-          
-    
-        </>
+        </Flex> 
+    </>
         
     )
 }

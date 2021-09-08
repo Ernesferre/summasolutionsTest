@@ -8,12 +8,9 @@ import {
   Switch,
   Route,
   Redirect,
-  Link
 } from "react-router-dom"
 
 import { theme } from "./resources/theme"
-
-
 
 
 function App() {

@@ -1,14 +1,10 @@
 import React from 'react'
-import { ChakraProvider, Container, Heading, Text, Flex, SimpleGrid, Box } from "@chakra-ui/react"
+import { Heading, Text, Flex, SimpleGrid, Box } from "@chakra-ui/react"
 import { listaProductos } from './productos'
 import Card from './Card';
 
 
 const MainView = () => {
-
-
-
-
 
     return (
         <Box>  
@@ -65,8 +61,6 @@ const MainView = () => {
             }
                                 
         </SimpleGrid>
-
-
 
     </Box>
     )

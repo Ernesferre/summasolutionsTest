@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Heading, Text, Image, Flex, Box, Button } from "@chakra-ui/react"
-import { listaProductos } from './productos'
-import { useHistory, Link } from "react-router-dom";
+import { Container, Image, Flex, Box, Button } from "@chakra-ui/react"
+import { useHistory } from "react-router-dom";
 
 
 const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
@@ -11,7 +10,8 @@ const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
 
     // console.log(`La resolución de tu pantalla es:  ${window.innerWidth}`) 
 
-    // Variable que controla el ancho de la pantalla para definir el texto del botton
+
+    // Variable que controla el ancho de la pantalla para definir el valor del texto del botton (Responsive: "Comprar" / Desktop: "Ver Detalle")
     const [buttonText, setbuttonText] = useState("VER DETALLES")
     
 
@@ -33,10 +33,10 @@ const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
     return (
     
         <Container
-            w={"16rem", "16rem", null, "16rem"}
+            w="16rem"
             mb={2}
             alignSelf="center"
-            margin={"1rem", null, null, "0.5rem"}
+            margin={["0.5rem", null, null, "0.5rem"]}
             alignContent="center"
             bg="white"
             p={3}
@@ -90,32 +90,23 @@ const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
                     
                         <Button
                             onClick={() => handleDetail(id)}
-                            // to={`/detailview/${id}`}
                             bg="#23B202"
                             color="white"
                             h={[6,null, null, 8]}
-                            
                             borderRadius="full"
                             fontSize= "small"
                             _hover= {{
                                 color: "#23B202",
                                 bg: "white",
                                 fontWeight: "bold",
-                                boxShadow: "dark-lg"
-                                
-                            
-                            }}
-                            
+                                boxShadow: "dark-lg"   
+                            }}     
                         >
                             {buttonText}
-                        </Button>
-
-                    
-                        
+                        </Button>  
             
                     </Flex>
         </Container>
-
     )
 }
 
