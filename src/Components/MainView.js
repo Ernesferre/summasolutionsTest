@@ -53,12 +53,12 @@ const MainView = () => {
                 <Flex>
                     
                     <Card
-                    key={item.id}
-                    id={item.id}
-                    imagen={item.imagen}
-                    precio={item.precio}
-                    precioAnt={item.precioAnt} 
-                    descripcion={item.descripcion}
+                        key={item.id}
+                        id={item.id}
+                        imagen={item.imagen}
+                        precio={item.precio}
+                        precioAnt={item.precioAnt} 
+                        descripcion={item.descripcion}
                     />
                 </Flex>
             ))

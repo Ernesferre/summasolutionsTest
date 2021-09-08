@@ -94,6 +94,7 @@ const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
                             bg="#23B202"
                             color="white"
                             h={[6,null, null, 8]}
+                            
                             borderRadius="full"
                             fontSize= "small"
                             _hover= {{
