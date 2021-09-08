@@ -3,7 +3,7 @@ import { Container, Image, Flex, Box, Button } from "@chakra-ui/react"
 import { useHistory } from "react-router-dom";
 
 
-const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
+const Card = ({ id, imagen, precio, precioAnt, descripcion}) => {
 
 
     const history = useHistory();
@@ -79,7 +79,7 @@ const Card = ({id, imagen, precio, precioAnt, descripcion}) => {
                             mb={2}
                             textAlign="left"
                             fontSize={["1rem", null, null, "1.5rem"]}
-                            fontWeight="black"
+                            fontWeight="bold"
                             maxHeight="3em"
                             overflow="hidden"
                             color="dark"

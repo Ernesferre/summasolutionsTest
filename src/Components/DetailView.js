@@ -31,7 +31,7 @@ const DetailView = () => {
 
     // Funcio de notificacion de compra
     const handleBuy = (id) => {
-        console.log("Has comprado el articulo:", id)
+        // console.log("Has comprado el articulo:", id)
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -88,7 +88,6 @@ const DetailView = () => {
                     <Stack
                         p={2}
                         w={["100%", "100%", "100%", "70%"]}
-                        bg=""
                         mx="auto" 
                     >   
                            

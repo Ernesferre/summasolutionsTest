@@ -46,10 +46,12 @@ const MainView = () => {
 
                                 
             {listaProductos.map((item) => (
-                <Flex>
+                
+                <Flex
+                    key={item.id}
+                >
                     
                     <Card
-                        key={item.id}
                         id={item.id}
                         imagen={item.imagen}
                         precio={item.precio}
